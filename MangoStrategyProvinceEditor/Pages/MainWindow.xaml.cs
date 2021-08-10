@@ -36,7 +36,7 @@ namespace MangoStrategyProvinceEditor
             switch ((string)ClickedButton.Tag)
             {
                 case "NewProvince":
-
+                    new NewProvinceWindow().Show();
                     break;
                 case "Minimize":
                     WindowState = WindowState.Minimized;
@@ -62,8 +62,8 @@ namespace MangoStrategyProvinceEditor
         {
             Point posNow = e.GetPosition(MapCanvas);
             Rectangle rectangle = new Rectangle();
-            rectangle.Width = 1;
-            rectangle.Height = 1;
+            rectangle.Width = 0.5;
+            rectangle.Height = 0.5;
             rectangle.Fill = new SolidColorBrush(_SquarePicker.SelectedColor);
             rectangle.Margin = new Thickness(posNow.X, posNow.Y, 0, 0);
             rectangle.Tag = Convert.ToString(RectangleNum);
