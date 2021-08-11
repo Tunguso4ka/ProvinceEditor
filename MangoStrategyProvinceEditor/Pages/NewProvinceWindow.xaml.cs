@@ -20,9 +20,12 @@ namespace MangoStrategyProvinceEditor
     /// </summary>
     public partial class NewProvinceWindow : Window
     {
-        public NewProvinceWindow()
+        MainWindow _MainWindow;
+
+        public NewProvinceWindow(MainWindow mainWindow)
         {
             InitializeComponent();
+            _MainWindow = mainWindow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,8 +41,18 @@ namespace MangoStrategyProvinceEditor
                         LocationTextBox.Text = folderBrowserDialog1.SelectedPath;
                     }
                     break;
+                case "OpenFile":
+                    Forms.OpenFileDialog _OpenFileDialog = new Forms.OpenFileDialog();
+                    _OpenFileDialog.InitialDirectory = LocationTextBox.Text;
+                    _OpenFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+                    if (_OpenFileDialog.ShowDialog() == Forms.DialogResult.OK)
+                    {
+                        FileTextBox.Text = _OpenFileDialog.FileName;
+                    }
+                    break;
                 case "CreateNew":
-                    //mainwindow.CreateNew();
+                    _MainWindow.CreateNew(FileTextBox.Text);
                     this.Close();
                     break;
                 case "Close":

@@ -7,9 +7,13 @@
         xmlns:zm="clr-namespace:Wpf.Controls.PanAndZoom;assembly=Wpf.Controls.PanAndZoom"
         xmlns:local="clr-namespace:MangoStrategyProvinceEditor"
         mc:Ignorable="d"
+        
+        WindowStyle="None"
         ResizeMode="NoResize"
         Title="ProvinceEditor"
-        Height="720" Width="1280">
+        
+        Height="720" Width="1280"
+        >
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="5" ResizeBorderThickness="5" CaptionHeight="5">
             
@@ -18,27 +22,28 @@
     <Border BorderThickness="5" BorderBrush="AliceBlue">
         <Grid>
             <Grid Margin="5">
-                <zm:ZoomBorder>
+                <zm:ZoomBorder Width="15360" Height="8640">
                     <Grid Name="MapGrid" MouseRightButtonDown="Canvas_MouseRightButtonDown">
-                        <Image Source="/Resources/itl.cat_map-wallpaper-hd_2123737.png"/>
+                        <Image Source="/Resources/itl.cat_map-wallpaper-hd_2123737.png" Width="15360" Height="8640"/>
                         <Canvas Name="MapCanvas">
-
                         </Canvas>
                     </Grid>
                 </zm:ZoomBorder>
             </Grid>
-            <StackPanel HorizontalAlignment="Left" Background="#FFFFE3E3" Width="100" Margin="5">
+            <StackPanel HorizontalAlignment="Left" Background="White" Width="100" Margin="5">
                 <Button Content="" FontFamily="Segoe MDL2 Assets" Name="NewProvince" Click="Button_Click" Tag="NewProvince" ToolTip="Create a new province"/>
-                <TextBox Text="Province Name" Width="100"/>
+                <TextBox Text="Province Name" Width="100" Name="ProvinceNameTextBox"/>
 
                 <cp:SquarePicker Name="_SquarePicker" ColorChanged="_SquarePicker_ColorChanged"/>
                 <cp:HexColorTextBox Name="_HexColorTexBox" ColorChanged="_HexColorTexBox_ColorChanged"/>
+
+                <Button Content="Save" Name="Save" Click="Button_Click" Tag="Save"/>
             </StackPanel>
             <Grid VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="Minimize"/>
-                    <Button Content="" FontFamily="Segoe MDL2 Assets" IsEnabled="False"/>
-                    <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="Close"/>
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="Minimize"/>
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" IsEnabled="False"/>
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="Close"/>
                 </StackPanel>
             </Grid>
         </Grid>

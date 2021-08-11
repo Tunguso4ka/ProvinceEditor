@@ -19,6 +19,11 @@
                     <TextBox MinWidth="200" Name="LocationTextBox"/>
                     <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="OpenFolder"/>
                 </StackPanel>
+                <TextBlock Text="File:"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox MinWidth="200" Name="FileTextBox"/>
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="OpenFile"/>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
