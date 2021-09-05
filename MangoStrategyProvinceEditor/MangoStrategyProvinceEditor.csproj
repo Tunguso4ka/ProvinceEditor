@@ -134,5 +134,10 @@
   <ItemGroup>
     <None Include="Resources\mspelogo_icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\rectangle.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

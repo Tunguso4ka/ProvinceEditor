@@ -15,13 +15,13 @@
         Height="720" Width="1280"
         >
     <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="5" ResizeBorderThickness="5" CaptionHeight="5">
+        <WindowChrome GlassFrameThickness="1" ResizeBorderThickness="1" CaptionHeight="1">
             
         </WindowChrome>
     </WindowChrome.WindowChrome>
-    <Border BorderThickness="5" BorderBrush="AliceBlue">
+    <Border BorderThickness="1">
         <Grid>
-            <Grid Margin="5">
+            <Grid>
                 <zm:ZoomBorder Width="15360" Height="8640">
                     <Grid Name="MapGrid" MouseRightButtonDown="Canvas_MouseRightButtonDown">
                         <Image Source="/Resources/itl.cat_map-wallpaper-hd_2123737.png" Width="15360" Height="8640"/>
@@ -30,16 +30,19 @@
                     </Grid>
                 </zm:ZoomBorder>
             </Grid>
-            <StackPanel HorizontalAlignment="Left" Background="White" Width="100" Margin="5">
-                <Button Content="" FontFamily="Segoe MDL2 Assets" Name="NewProvince" Click="Button_Click" Tag="NewProvince" ToolTip="Create a new province"/>
+            <StackPanel Name="MenuStackPanel" HorizontalAlignment="Left" Background="#BFFFFFFF" Width="100" Margin="0,30">
+                <Button Content="LoadProvinces" Name="LoadProvinces" Click="Button_Click" Tag="LoadProvinces" Width="100"/>
+                <Button Content="Create new" Name="NewProvince" Click="Button_Click" Tag="NewProvince" Width="100"/>
+                <CheckBox Content="Snap XY to Rectangle" Name="SnapCheckBox"/>
                 <TextBox Text="Province Name" Width="100" Name="ProvinceNameTextBox"/>
 
                 <cp:SquarePicker Name="_SquarePicker" ColorChanged="_SquarePicker_ColorChanged"/>
                 <cp:HexColorTextBox Name="_HexColorTexBox" ColorChanged="_HexColorTexBox_ColorChanged"/>
 
-                <Button Content="Save" Name="Save" Click="Button_Click" Tag="Save"/>
+                <Button Content="Save" Name="Save" Click="Button_Click" Tag="Save" Width="100"/>
             </StackPanel>
-            <Grid VerticalAlignment="Top">
+            <Grid VerticalAlignment="Top" Background="#BFFFFFFF" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="ShowMenu" Width="100" HorizontalAlignment="Left"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Content="" FontFamily="Segoe MDL2 Assets" Click="Button_Click" Tag="Minimize"/>
                     <Button Content="" FontFamily="Segoe MDL2 Assets" IsEnabled="False"/>
